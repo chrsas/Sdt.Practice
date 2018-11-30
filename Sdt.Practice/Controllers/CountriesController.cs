@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sdt.Practice;
+using Sdt.Practice.Dto;
+using Sdt.Practice.Extentions;
 using Sdt.Practice.Models;
 
 namespace Sdt.Practice.Controllers
@@ -15,17 +18,26 @@ namespace Sdt.Practice.Controllers
     public class CountriesController : ControllerBase
     {
         private readonly RestApiContext _context;
+        private readonly IMapper _mapper;
 
-        public CountriesController(RestApiContext context)
+        public CountriesController(RestApiContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        // GET: api/Countries
+        /// <summary>
+        /// 获取国家信息
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Country> GetCountries(string englishName)
+        public IEnumerable<GetCountryOutput> GetCountries([FromQuery]GetCountryInput input, [FromQuery]PageRequest pageRequest)
         {
-            return _context.Countries.Where(c => c.EnglishName.Contains(englishName));
+            var query = _context.Countries.AsQueryable()
+                .WhereIf(!string.IsNullOrWhiteSpace(input.EnglishName), c => c.EnglishName.Contains(input.EnglishName))
+                .WhereIf(!string.IsNullOrWhiteSpace(input.ChineseName), c => c.ChineseName.Contains(input.ChineseName));
+            query = query.Skip(pageRequest.PageIndex * pageRequest.PageCount).Take(pageRequest.PageCount);
+            return _mapper.Map<IEnumerable<GetCountryOutput>>(query.ToList());
         }
 
         // GET: api/Countries/5
