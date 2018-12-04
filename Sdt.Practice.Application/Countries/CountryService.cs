@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using AutoMapper;
@@ -39,6 +40,9 @@ namespace Sdt.Practice.Application.Countries
         public void InsertCountry(InsertCountyInput input)
         {
             var country = _mapper.Map<Country>(input);
+            if (_countryRepository.GetAll()
+                .Any(c => c.ChineseName == input.ChineseName || c.EnglishName == input.EnglishName))
+                throw new ValidationException("名称有重复");
             _countryRepository.Insert(country);
             _countryRepository.SaveChanges();
         }
