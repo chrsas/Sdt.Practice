@@ -8,5 +8,7 @@ namespace Sdt.Practice.Application.Countries
         IEnumerable<GetCountryOutput> GetCountries(GetCountryInput input, PageRequest pageRequest);
 
         GetCountryOutput GetCountry(int id);
+
+        void InsertCountry(InsertCountyInput input);
     }
 }

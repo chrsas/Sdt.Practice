@@ -86,19 +86,19 @@ namespace Sdt.Practice.Controllers
         //}
 
         //// POST: api/Countries
-        //[HttpPost]
-        //public async Task<IActionResult> PostCountry([FromBody] Country country)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost]
+        public IActionResult PostCountry([FromBody] InsertCountyInput country)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    _context.Countries.Add(country);
-        //    await _context.SaveChangesAsync();
+            _countryService.InsertCountry(country);
 
-        //    return CreatedAtAction("GetCountry", new { id = country.Id }, country);
-        //}
+            //return CreatedAtAction("GetCountry", new { id = country.Id }, country);
+            return Ok();
+        }
 
         //// DELETE: api/Countries/5
         //[HttpDelete("{id}")]

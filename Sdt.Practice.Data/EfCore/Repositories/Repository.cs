@@ -25,5 +25,15 @@ namespace Sdt.Practice.Data.EfCore.Repositories
         {
             return GetAll().FirstOrDefault(expression);
         }
+
+        public void Insert(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
+
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
     }
 }

@@ -35,5 +35,12 @@ namespace Sdt.Practice.Application.Countries
             var result = _countryRepository.FirstOrDefault(c => c.Id == id);
             return _mapper.Map<GetCountryOutput>(result);
         }
+
+        public void InsertCountry(InsertCountyInput input)
+        {
+            var country = _mapper.Map<Country>(input);
+            _countryRepository.Insert(country);
+            _countryRepository.SaveChanges();
+        }
     }
 }

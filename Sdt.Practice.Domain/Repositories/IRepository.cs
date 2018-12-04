@@ -9,5 +9,9 @@ namespace Sdt.Practice.Domain.Repositories
         IQueryable<T> GetAll();
 
         T FirstOrDefault(Expression<Func<T, bool>> expression);
+
+        void Insert(T entity);
+
+        int SaveChanges();
     }
 }
