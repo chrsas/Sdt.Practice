@@ -5,16 +5,17 @@ using System.Text;
 using AutoMapper;
 using Sdt.Practice.Application.Dto;
 using Sdt.Practice.Application.Extentions;
+using Sdt.Practice.Domain.Models;
 using Sdt.Practice.Domain.Repositories;
 
 namespace Sdt.Practice.Application.Countries
 {
     class CountryService : ICountryService
     {
-        private readonly ICountryRepository _countryRepository;
+        private readonly IRepository<Country> _countryRepository;
         private readonly IMapper _mapper;
 
-        public CountryService(ICountryRepository countryRepository, IMapper mapper)
+        public CountryService(IRepository<Country> countryRepository, IMapper mapper)
         {
             _countryRepository = countryRepository;
             _mapper = mapper;
