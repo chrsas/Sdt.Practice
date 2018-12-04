@@ -37,23 +37,18 @@ namespace Sdt.Practice.Controllers
         }
 
         // GET: api/Countries/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetCountry([FromRoute] int id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpGet("{id}")]
+        public IActionResult GetCountry([FromRoute] int id)
+        {
+            var country = _countryService.GetCountry(id);
 
-        //    var country = await _context.Countries.FindAsync(id);
+            if (country == null)
+            {
+                return NotFound();
+            }
 
-        //    if (country == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(country);
-        //}
+            return Ok(country);
+        }
 
         //// PUT: api/Countries/5
         //[HttpPut("{id}")]

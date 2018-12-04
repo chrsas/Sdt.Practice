@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using Sdt.Practice.Domain.Repositories;
 
@@ -18,6 +19,11 @@ namespace Sdt.Practice.Data.EfCore.Repositories
         public IQueryable<T> GetAll()
         {
             return _context.Set<T>().AsQueryable();
+        }
+
+        public T FirstOrDefault(Expression<Func<T, bool>> expression)
+        {
+            return GetAll().FirstOrDefault(expression);
         }
     }
 }
