@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
-namespace Sdt.Practice.Extentions
+namespace Sdt.Practice.Application.Extentions
 {
     public static class WhereExtention
     {

@@ -1,4 +1,4 @@
-﻿namespace Sdt.Practice
+﻿namespace Sdt.Practice.Application.Dto
 {
     public class PageRequest
     {
@@ -10,6 +10,6 @@
         /// <summary>
         /// 每页条数
         /// </summary>
-        public int PageCount { get; set; }
+        public int PageCount { get; set; } = 20;
     }
 }

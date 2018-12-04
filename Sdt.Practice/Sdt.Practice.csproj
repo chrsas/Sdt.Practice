@@ -24,4 +24,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sdt.Practice.Application\Sdt.Practice.Application.csproj" />
+    <ProjectReference Include="..\Sdt.Practice.Data\Sdt.Practice.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -4,21 +4,11 @@
         <name>Sdt.Practice</name>
     </assembly>
     <members>
-        <member name="M:Sdt.Practice.Controllers.CountriesController.GetCountries(Sdt.Practice.Dto.GetCountryInput,Sdt.Practice.PageRequest)">
+        <member name="M:Sdt.Practice.Controllers.CountriesController.GetCountries(Sdt.Practice.Application.Dto.GetCountryInput,Sdt.Practice.Application.Dto.PageRequest)">
             <summary>
             获取国家信息
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Sdt.Practice.PageRequest.PageIndex">
-            <summary>
-            页码
-            </summary>
-        </member>
-        <member name="P:Sdt.Practice.PageRequest.PageCount">
-            <summary>
-            每页条数
-            </summary>
         </member>
     </members>
 </doc>

@@ -15,6 +15,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
+using Sdt.Practice.Application;
+using Sdt.Practice.Data;
 
 namespace Sdt.Practice
 {
@@ -49,6 +51,9 @@ namespace Sdt.Practice
             services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            ApplicationModule.Register(services);
+            DataModule.Register(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Sdt.Practice.Models
+namespace Sdt.Practice.Domain.Models
 {
     public class Country
     {

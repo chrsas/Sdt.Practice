@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sdt.Practice.Models;
+using Sdt.Practice.Domain.Models;
 
-namespace Sdt.Practice
+namespace Sdt.Practice.Data
 {
     public class RestApiContext : DbContext
     {
