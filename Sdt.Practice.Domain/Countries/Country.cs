@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Sdt.Practice.Domain.Cities;
 
 namespace Sdt.Practice.Domain.Countries
 {
@@ -11,5 +13,7 @@ namespace Sdt.Practice.Domain.Countries
 
         [MaxLength(100)]
         public string ChineseName { get; set; }
+
+        public List<City> Cities { get; set; }
     }
 }
