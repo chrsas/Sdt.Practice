@@ -7,7 +7,6 @@ using AutoMapper;
 using Sdt.Practice.Application.Countries.Dto;
 using Sdt.Practice.Application.Extentions;
 using Sdt.Practice.Domain.Countries;
-using Sdt.Practice.Domain.Models;
 using Sdt.Practice.Domain.Repositories;
 
 namespace Sdt.Practice.Application.Countries

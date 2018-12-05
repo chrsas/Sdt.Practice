@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Sdt.Practice.Domain.Models;
 using Sdt.Practice.Domain.Repositories;
 
 namespace Sdt.Practice.Domain.Countries

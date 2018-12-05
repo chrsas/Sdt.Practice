@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Sdt.Practice.Application.Countries.Dto;
-using Sdt.Practice.Domain.Models;
+using Sdt.Practice.Domain.Countries;
 
 namespace Sdt.Practice.Application
 {

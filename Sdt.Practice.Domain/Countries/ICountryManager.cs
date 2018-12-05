@@ -1,6 +1,4 @@
-﻿using Sdt.Practice.Domain.Models;
-
-namespace Sdt.Practice.Domain.Countries
+﻿namespace Sdt.Practice.Domain.Countries
 {
     public interface ICountryManager
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Sdt.Practice.Data.EfCore.Repositories;
-using Sdt.Practice.Domain.Models;
+using Sdt.Practice.Domain.Countries;
 using Sdt.Practice.Domain.Repositories;
 
 namespace Sdt.Practice.Data

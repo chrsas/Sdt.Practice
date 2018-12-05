@@ -10,7 +10,6 @@ using Sdt.Practice;
 using Sdt.Practice.Application.Countries;
 using Sdt.Practice.Application.Countries.Dto;
 using Sdt.Practice.Data;
-using Sdt.Practice.Domain.Models;
 
 namespace Sdt.Practice.Controllers
 {
