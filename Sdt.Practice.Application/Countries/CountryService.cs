@@ -6,6 +6,7 @@ using System.Text;
 using AutoMapper;
 using Sdt.Practice.Application.Countries.Dto;
 using Sdt.Practice.Application.Extentions;
+using Sdt.Practice.Domain.Countries;
 using Sdt.Practice.Domain.Models;
 using Sdt.Practice.Domain.Repositories;
 
@@ -14,11 +15,15 @@ namespace Sdt.Practice.Application.Countries
     class CountryService : ICountryService
     {
         private readonly IRepository<Country> _countryRepository;
+        private readonly ICountryManager _countryManager;
         private readonly IMapper _mapper;
 
-        public CountryService(IRepository<Country> countryRepository, IMapper mapper)
+        public CountryService(IRepository<Country> countryRepository,
+            ICountryManager countryManager,
+            IMapper mapper)
         {
             _countryRepository = countryRepository;
+            _countryManager = countryManager;
             _mapper = mapper;
         }
 
@@ -40,11 +45,7 @@ namespace Sdt.Practice.Application.Countries
         public void InsertCountry(InsertCountryInput input)
         {
             var country = _mapper.Map<Country>(input);
-            if (_countryRepository.GetAll()
-                .Any(c => c.ChineseName == input.ChineseName || c.EnglishName == input.EnglishName))
-                throw new ValidationException("名称有重复");
-            _countryRepository.Insert(country);
-            _countryRepository.SaveChanges();
+            _countryManager.Insert(country);
         }
     }
 }
