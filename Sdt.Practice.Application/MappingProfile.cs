@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Sdt.Practice.Application.Dto;
+using Sdt.Practice.Application.Countries.Dto;
 using Sdt.Practice.Domain.Models;
 
 namespace Sdt.Practice.Application

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using AutoMapper;
-using Sdt.Practice.Application.Dto;
+using Sdt.Practice.Application.Countries.Dto;
 using Sdt.Practice.Application.Extentions;
 using Sdt.Practice.Domain.Models;
 using Sdt.Practice.Domain.Repositories;

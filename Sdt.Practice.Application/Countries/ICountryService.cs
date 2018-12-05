@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Sdt.Practice.Application.Dto;
+using Sdt.Practice.Application.Countries.Dto;
 
 namespace Sdt.Practice.Application.Countries
 {

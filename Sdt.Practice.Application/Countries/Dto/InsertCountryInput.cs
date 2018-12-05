@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Sdt.Practice.Application.Dto
+namespace Sdt.Practice.Application.Countries.Dto
 {
     public class InsertCountryInput
     {

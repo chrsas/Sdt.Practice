@@ -1,4 +1,4 @@
-﻿namespace Sdt.Practice.Application.Dto
+﻿namespace Sdt.Practice.Application.Countries.Dto
 {
     public class GetCountryInput
     {
