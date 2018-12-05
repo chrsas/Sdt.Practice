@@ -51,39 +51,23 @@ namespace Sdt.Practice.Controllers
         }
 
         //// PUT: api/Countries/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutCountry([FromRoute] int id, [FromBody] Country country)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPut("{id}")]
+        public IActionResult PutCountry([FromRoute] int id, [FromBody] UpdateCountryInput country)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    if (id != country.Id)
-        //    {
-        //        return BadRequest();
-        //    }
+            if (id != country.Id)
+            {
+                return BadRequest();
+            }
 
-        //    _context.Entry(country).State = EntityState.Modified;
+            _countryService.UpdateCountry(country);
 
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!CountryExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
+            return Ok();
+        }
 
         //// POST: api/Countries
         [HttpPost]

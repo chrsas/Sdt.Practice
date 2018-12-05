@@ -47,5 +47,12 @@ namespace Sdt.Practice.Application.Countries
             var country = _mapper.Map<Country>(input);
             _countryManager.Insert(country);
         }
+
+        public void UpdateCountry(UpdateCountryInput input)
+        {
+            var country = _mapper.Map<Country>(input);
+            country.Id = input.Id;
+            _countryManager.Update(country);
+        }
     }
 }
