@@ -37,7 +37,7 @@ namespace Sdt.Practice.Application.Countries
             return _mapper.Map<GetCountryOutput>(result);
         }
 
-        public void InsertCountry(InsertCountyInput input)
+        public void InsertCountry(InsertCountryInput input)
         {
             var country = _mapper.Map<Country>(input);
             if (_countryRepository.GetAll()

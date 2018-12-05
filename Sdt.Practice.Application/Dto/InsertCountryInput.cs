@@ -2,10 +2,8 @@
 
 namespace Sdt.Practice.Application.Dto
 {
-    public class InsertCountyInput
+    public class InsertCountryInput
     {
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string EnglishName { get; set; }

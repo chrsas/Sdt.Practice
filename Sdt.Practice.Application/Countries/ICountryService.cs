@@ -9,6 +9,6 @@ namespace Sdt.Practice.Application.Countries
 
         GetCountryOutput GetCountry(int id);
 
-        void InsertCountry(InsertCountyInput input);
+        void InsertCountry(InsertCountryInput input);
     }
 }

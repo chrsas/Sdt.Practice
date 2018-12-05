@@ -87,7 +87,7 @@ namespace Sdt.Practice.Controllers
 
         //// POST: api/Countries
         [HttpPost]
-        public IActionResult PostCountry([FromBody] InsertCountyInput country)
+        public IActionResult PostCountry([FromBody] InsertCountryInput country)
         {
             if (!ModelState.IsValid)
             {
