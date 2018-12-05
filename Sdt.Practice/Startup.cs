@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Sdt.Practice.Application;
 using Sdt.Practice.Data;
 
@@ -51,6 +53,8 @@ namespace Sdt.Practice
             services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.Configure<MvcOptions>(mvcOptions => { mvcOptions.Filters.Add(new ApiExceptionFilter()); });
 
             ApplicationModule.Register(services);
             DataModule.Register(services);
