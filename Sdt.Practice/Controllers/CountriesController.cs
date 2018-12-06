@@ -49,6 +49,19 @@ namespace Sdt.Practice.Controllers
             return Ok(country);
         }
 
+        [HttpGet("{id}/withCities")]
+        public IActionResult GetCountryWithCities([FromRoute] int id)
+        {
+            var country = _countryService.GetCountryWithCities(id);
+
+            if (country == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(country);
+        }
+
         //// PUT: api/Countries/5
         [HttpPut("{id}")]
         public IActionResult PutCountry([FromRoute] int id, [FromBody] UpdateCountryInput country)

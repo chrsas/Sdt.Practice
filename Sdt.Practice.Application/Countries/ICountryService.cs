@@ -12,5 +12,6 @@ namespace Sdt.Practice.Application.Countries
         void InsertCountry(InsertCountryInput input);
 
         void UpdateCountry(UpdateCountryInput input);
+        GetCountryOutput GetCountryWithCities(int id);
     }
 }

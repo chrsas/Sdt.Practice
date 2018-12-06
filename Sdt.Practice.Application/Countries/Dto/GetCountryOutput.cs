@@ -1,4 +1,7 @@
-﻿namespace Sdt.Practice.Application.Countries.Dto
+﻿using System.Collections.Generic;
+using Sdt.Practice.Application.Cities.Dto;
+
+namespace Sdt.Practice.Application.Countries.Dto
 {
     public class GetCountryOutput
     {
@@ -7,5 +10,7 @@
         public string EnglishName { get; set; }
 
         public string ChineseName { get; set; }
+
+        public IEnumerable<GetCityOutput> Cities { get; set; }
     }
 }
