@@ -8,7 +8,7 @@ namespace Sdt.Practice.Data.EfCore.Repositories
     {
         private readonly RestApiContext _context;
 
-        private TransactionScope _transactionScope;
+        private readonly TransactionScope _transactionScope;
 
         public UnitOfWork(RestApiContext context)
         {
