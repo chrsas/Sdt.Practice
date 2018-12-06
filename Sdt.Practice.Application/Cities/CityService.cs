@@ -48,5 +48,21 @@ namespace Sdt.Practice.Application.Cities
                 throw new ValidationException("");
             _countryManager.InsertCities(country, cities);
         }
+
+        public GetCityOutput GetCity(int countryId, int cityId)
+        {
+            var country = _countryRepository.GetAll().Include(c => c.Cities).FirstOrDefault(c => c.Id == countryId);
+            if (country == null)
+                return null;
+            var city = country.Cities.FirstOrDefault(c => c.Id == cityId);
+            return city == null
+                ? null
+                : new GetCityOutput()
+                {
+                    Id = city.Id,
+                    Name = city.Name,
+                    Code = city.Code
+                };
+        }
     }
 }

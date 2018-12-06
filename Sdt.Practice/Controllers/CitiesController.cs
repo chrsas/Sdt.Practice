@@ -30,5 +30,14 @@ namespace Sdt.Practice.Controllers
         {
             _cityService.InsertCities(countryId, inputs);
         }
+
+        [HttpGet("{cityId}")]
+        public IActionResult GetCity([FromRoute] int countryId, [FromRoute] int cityId)
+        {
+            var city = _cityService.GetCity(countryId, cityId);
+            if (city == null)
+                return NotFound();
+            return Ok(city);
+        }
     }
 }
