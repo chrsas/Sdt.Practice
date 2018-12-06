@@ -18,7 +18,14 @@ namespace Sdt.Practice.Controllers
             _cityService = cityService;
         }
 
-        // GET
+        /// <summary>
+        /// 获取城市信息
+        /// </summary>
+        /// <param name="countryId">所属国家Id</param>
+        /// <remarks>
+        /// xxxx
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet()]
         public IEnumerable<GetCityOutput> GetCities([FromRoute] int countryId)
         {

@@ -10,6 +10,7 @@ namespace Sdt.Practice.Data
     {
         public static void Register(IServiceCollection service)
         {
+            service.AddScoped<IUnitOfWork, UnitOfWork>();
             service.AddTransient<IRepository<Country>, Repository<Country>>();
             service.AddTransient<IRepository<City>, Repository<City>>();
         }

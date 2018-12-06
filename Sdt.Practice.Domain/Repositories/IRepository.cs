@@ -11,7 +11,5 @@ namespace Sdt.Practice.Domain.Repositories
         T FirstOrDefault(Expression<Func<T, bool>> expression);
 
         void Insert(T entity);
-
-        int SaveChanges();
     }
 }

@@ -30,10 +30,5 @@ namespace Sdt.Practice.Data.EfCore.Repositories
         {
             _context.Set<T>().Add(entity);
         }
-
-        public int SaveChanges()
-        {
-            return _context.SaveChanges();
-        }
     }
 }

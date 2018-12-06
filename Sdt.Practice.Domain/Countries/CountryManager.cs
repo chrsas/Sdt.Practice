@@ -10,17 +10,19 @@ namespace Sdt.Practice.Domain.Countries
     internal class CountryManager : ICountryManager
     {
         private readonly IRepository<Country> _countryRepository;
+        private readonly IUnitOfWork _uow;
 
-        public CountryManager(IRepository<Country> countryRepository)
+        public CountryManager(IRepository<Country> countryRepository, IUnitOfWork uow)
         {
             _countryRepository = countryRepository;
+            _uow = uow;
         }
 
         public void Insert(Country country)
         {
             CheckNameExist(country);
             _countryRepository.Insert(country);
-            _countryRepository.SaveChanges();
+            _uow.SaveChanges();
         }
 
         public void Update(Country country)
@@ -31,7 +33,7 @@ namespace Sdt.Practice.Domain.Countries
                 throw new ValidationException($"没有Id为 {country.Id} 的实体");
             dbCountry.ChineseName = country.ChineseName;
             dbCountry.EnglishName = country.EnglishName;
-            _countryRepository.SaveChanges();
+            _uow.SaveChanges();
         }
 
         private void CheckNameExist(Country country)
@@ -44,7 +46,7 @@ namespace Sdt.Practice.Domain.Countries
         public void InsertCities(Country country, ICollection<City> cities)
         {
             country.Cities.AddRange(cities);
-            _countryRepository.SaveChanges();
+            _uow.SaveChanges();
         }
     }
 }
