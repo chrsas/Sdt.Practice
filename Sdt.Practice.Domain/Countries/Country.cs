@@ -6,6 +6,11 @@ namespace Sdt.Practice.Domain.Countries
 {
     public class Country
     {
+        public Country()
+        {
+            Cities = new List<City>();
+        }
+
         public int Id { get; set; }
 
         [MaxLength(100)]
