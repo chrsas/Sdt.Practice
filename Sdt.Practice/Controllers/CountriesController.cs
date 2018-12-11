@@ -29,9 +29,8 @@ namespace Sdt.Practice.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<GetCountryOutput> GetCountries([FromQuery]GetCountryInput input, [FromQuery]PageRequest pageRequest)
+        public PagedResponse<GetCountryOutput> GetCountries([FromQuery]GetCountryInput input, [FromQuery]PageRequest pageRequest)
         {
-
             return _countryService.GetCountries(input, pageRequest);
         }
 

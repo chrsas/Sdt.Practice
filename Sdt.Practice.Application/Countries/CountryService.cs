@@ -31,13 +31,20 @@ namespace Sdt.Practice.Application.Countries
             _mapper = mapper;
         }
 
-        public IEnumerable<GetCountryOutput> GetCountries(GetCountryInput input, PageRequest pageRequest)
+        public PagedResponse<GetCountryOutput> GetCountries(GetCountryInput input, PageRequest pageRequest)
         {
             var query = _countryRepository.GetAll()
                 .WhereIf(!string.IsNullOrWhiteSpace(input.EnglishName), c => c.EnglishName.Contains(input.EnglishName))
                 .WhereIf(!string.IsNullOrWhiteSpace(input.ChineseName), c => c.ChineseName.Contains(input.ChineseName));
-            query = query.Skip(pageRequest.PageIndex * pageRequest.PageCount).Take(pageRequest.PageCount);
-            return _mapper.Map<IEnumerable<GetCountryOutput>>(query.ToList());
+            var amount = query.Count();
+            query = query.Skip(pageRequest.PageIndex * pageRequest.ItemCount).Take(pageRequest.ItemCount);
+            return new PagedResponse<GetCountryOutput>()
+            {
+                PageIndex = pageRequest.PageIndex,
+                TotalAmount = amount,
+                ItemCount = pageRequest.ItemCount,
+                Payload = _mapper.Map<IEnumerable<GetCountryOutput>>(query.ToList()),
+            };
         }
 
         public GetCountryOutput GetCountry(int id)
