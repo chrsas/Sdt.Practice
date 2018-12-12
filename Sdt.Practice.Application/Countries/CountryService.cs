@@ -13,7 +13,7 @@ using Sdt.Practice.Domain.Repositories;
 
 namespace Sdt.Practice.Application.Countries
 {
-    class CountryService : ICountryService
+    internal class CountryService : ICountryService
     {
         private readonly IRepository<Country> _countryRepository;
         private readonly ICountryManager _countryManager;
@@ -74,7 +74,12 @@ namespace Sdt.Practice.Application.Countries
 
         public void InsertCountry(InsertCountryInput input)
         {
-            var country = _mapper.Map<Country>(input);
+            //var country = _mapper.Map<Country>(input);
+            var country = new Country()
+            {
+                EnglishName = input.EnglishName,
+                ChineseName = input.ChineseName,
+            };
             _countryManager.Insert(country);
         }
 

@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Extensions.DependencyInjection;
 using Sdt.Practice.Domain.Countries;
+
+[assembly: InternalsVisibleTo("Sdt.Practice.Tests")]
 
 namespace Sdt.Practice.Domain
 {
